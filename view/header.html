@@ -1,0 +1,36 @@
+{{define "header.html"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <div align="left">
+                <a href="/">FileSys</a>&nbsp&nbsp&nbsp&nbsp
+            </div>
+
+            <div align="right">
+                {{if .islogin}}
+                <a href="/user/{{.sessions.Userid}}">{{.sessions.Username}}</a>&nbsp&nbsp&nbsp&nbsp
+
+                <a id="logout" href="/logout">退出</a>&nbsp&nbsp&nbsp&nbsp
+                {{else}}
+                <a href="/login">登录</a>&nbsp&nbsp&nbsp&nbsp
+                <a href="/register">注册</a>&nbsp&nbsp&nbsp&nbsp
+                {{end}}
+                <a href="/file/upload">上传文件</a>&nbsp&nbsp&nbsp&nbsp
+            </div>
+        </div>
+        Welcome To FileSys
+        {{if .user}}
+        Username: {{.user.Username}} Message: #{{.message}}#
+        {{end}}
+        <hr>
+    </nav>
+    {{end}}

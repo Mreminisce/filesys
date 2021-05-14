@@ -1,0 +1,18 @@
+{{define "login.html"}}
+{{template "header.html" .}}
+{{.message}}
+<form action="" method="POST">
+    用户名<input type="text" name="username"><br>
+    密码<input type="password" name="password"><br>
+    <button type="submit" onclick="setToken()">登录</button>
+</form>
+<script lang="javascript">
+    function setToken() {
+        var resp = JSON.parse(body);
+        localStorage.setItem("token", resp.data.Token)
+        localStorage.setItem("username", resp.data.Username)
+        window.location.href = resp.data.Location;
+    }
+</script>
+{{template "footer.html" }}
+{{end}}

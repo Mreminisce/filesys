@@ -1,0 +1,14 @@
+{{define "home.html"}}
+{{template "header.html" .}}
+<br>
+<section>
+    Hello FileSyS Oh
+</section>
+
+<div>
+    {{$sesid := .sessions.Userid}}
+    Please Upload File Here
+</div>
+
+{{template "footer.html" }}
+{{end}}
